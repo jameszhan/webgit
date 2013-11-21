@@ -1,0 +1,20 @@
+<div class="box">
+  <table class="table table-bordered table-striped table-condensed">
+    <%= render "nav_header" %>
+    <tbody>
+      <tr>
+        <td colspan="2"><%= link_to "..", upper_path %></td>
+      </tr>
+      <%- @tree.each_tree do|item| %>
+      <tr>
+        <td colspan="2"><%= link_to item[:name], git_tree_path(item[:name]) %></td>
+      </tr>
+      <%- end %>
+      <%- @tree.each_blob do|item| %>
+      <tr>
+        <td colspan="2"><%= link_to item[:name], git_blob_path(item[:name]) %></td>
+      </tr>
+      <%- end %>
+    </tbody>
+  </table>
+</div>

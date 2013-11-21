@@ -1,0 +1,17 @@
+<thead>
+  <tr>
+    <td class="dropdown" style="width: 120px;">
+    <%= link_to "javascript:void(0)", class: "dropdown-toggle", data: {toggle: "dropdown"} do %>
+      <%= params[:branch] %> <b class="caret"></b>
+    <% end %>
+    <ul class="dropdown-menu">
+      <%- @branches.each do|branch| %>
+        <li><%= link_to branch, webgit_tree_path(branch) %></li>
+      <%- end %>
+    </ul>
+    </td>
+    <td>
+      <%= link_to params[:branch], webgit_tree_path(params[:branch]) %> / <%= navigation %>
+    </td>
+  </tr>
+</thead>
