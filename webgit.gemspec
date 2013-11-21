@@ -1,4 +1,7 @@
-require 'mulberry/version'
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'webgit/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
