@@ -52,7 +52,7 @@ module Webgit
       end
     
       def set_repo_branch
-        if session[:current_repo] && (path = AppConfig::REPOS[session[:current_repo]]['path'])
+        if session[:current_repo] && (path = Webgit::AppConfig::REPOS[session[:current_repo]]['path'])
           @repo = Rugged::Repository.new(path)
           @branch = @repo.rev_parse(params[:branch])
           @branches = Rugged::Branch.each_name(@repo).select{|item| !item.include?('/') && item != params[:branch]}
