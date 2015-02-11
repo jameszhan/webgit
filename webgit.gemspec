@@ -12,6 +12,8 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/jameszhan"
   s.summary     = "Git Web Client"
   s.description = "Git Web Client."
+  spec.homepage = "http://www.github.com/jameszhan/webgit"
+  spec.license  = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
