@@ -31,7 +31,16 @@ webgit
 webgit <GIT_REPO_DIR> <PORT>
 ```
 
-`http://localhost:<PORT>/`
+```
+http://localhost:<PORT>/
+
+# show commit via sha id
+http://locahost:<PORT>/objects/HEAD/show
+http://localhost:<PORT>/objects/<COMMIT_SHA>/show
+
+# show tree via sha id
+http://localhost:<PORT>/objects/<TREE_SHA>/show
+```
 
 
 ## Development

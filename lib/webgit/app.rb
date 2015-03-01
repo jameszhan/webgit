@@ -56,6 +56,9 @@ module Webgit
         if obj.is_a? Rugged::Tree
           @tree = obj
           erb options[:tree_erb] || :tree
+        elsif obj.is_a? Rugged::Commit
+          @tree = obj.tree
+          erb options[:tree_erb] || :tree
         elsif obj.is_a? Rugged::Blob
           @blob = obj
           @format = options[:name].split('.')[-1]
