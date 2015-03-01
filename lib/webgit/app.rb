@@ -1,14 +1,11 @@
-require 'sinatra'
-require 'rugged'
-require 'coderay'
-require 'mime-types'
+# coding: utf-8
+require 'webgit'
 
 module Webgit
   class App < Sinatra::Base
-  
+    set :port, lambda{ PORT }
     set :public_folder, File.expand_path("../../../", __FILE__) + '/public'
-    set :views, File.expand_path("../../../", __FILE__) + '/views'
-  
+    set :views, File.expand_path("../../../", __FILE__) + '/views'    
     helpers Helpers  
   
     before "/*" do
@@ -43,12 +40,18 @@ module Webgit
     end  
   
     get '/:branch?' do
+      puts "============================="
+      puts File.expand_path("../../../", __FILE__) + '/public'
+      puts File.expand_path("../../../", __FILE__) + '/views'
+      puts "============================="
       @branch = @repo.branches[params[:branch] || @repo.head.name]
       @tree = @branch.target.tree
       erb :tree
     end
   
     get '/:branch/*' do
+      require 'pry'
+      binding.pry
       @branch = @repo.branches[params[:branch] || @repo.head.name]
       obj = find_object @branch.target.tree
       halt 404, "#{params[:splat].first} Not Found!" unless obj
