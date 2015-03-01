@@ -1,8 +1,0 @@
-<div class="box" style="width:600px;margin:30px auto;line-height:30px;">
-  <h2 class="title">REPOS</h2>
-  <ul>
-    <%- Webgit::AppConfig::REPOS.each do|name, setting| %>
-    <li><%= link_to name, current_repo_path(name) %></li>
-    <%- end %>
-  </ul>
-</div>

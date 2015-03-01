@@ -2,7 +2,6 @@ require 'sinatra'
 require 'rugged'
 require 'coderay'
 require 'mime-types'
-require 'pry'
 
 module Webgit
   class App < Sinatra::Base

@@ -1,6 +1,3 @@
-require 'rugged'
-require "webgit/engine"
-
 require "webgit/version"
 require "webgit/helpers"
 require "webgit/app"
