@@ -1,0 +1,16 @@
+<tbody>
+	<tr>
+	  <td colspan="2"><a href="<%= upper_path(@branch.name) %>">..</a></td>
+	</tr>
+	<% @tree.each_tree do|item| %>
+	<tr>
+	  <td colspan="2"><a href="<%= git_tree_path(@branch.name, item[:name]) %>"><%= item[:name] %></a></td>
+	</tr>
+	<% end %>
+	<% @tree.each_blob do|item| %>
+	<tr>
+	  <td colspan="2"><a href="<%= git_blob_path(@branch.name, item[:name]) %>"><%= item[:name] %></a></td>
+	</tr>
+	<% end %>
+</tbody>
+ 

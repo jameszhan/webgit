@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webgit</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <link rel='stylesheet' href='/stylesheets/coderay.css' type='text/css' media="screen, projection">
+</head>
+<body>
+	
+	<div class="box">
+	  <table class="table table-bordered table-striped table-condensed">
+		<thead>
+		  <tr>
+		    <td class="dropdown" style="width: 120px;">
+			<% if @branch %>
+			<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><%= @branch.name %> <b class="caret"></b></a>
+			<% else %>
+			<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><%= @branches.first.name %> <b class="caret"></b></a>
+			<% end %>
+		    <ul class="dropdown-menu">
+		      <% @branches.each do|branch| %>
+		        <li><a href="<%= webgit_path(branch.name, "") %>"><%= branch.name %></a></li>
+		      <% end %>
+		    </ul>
+		    </td>
+		    <td>
+			<% if @branch %>
+			  <a href="<%= webgit_path(@branch.name, "") %>"><%= @branch.name %></a> / <%= navigation(@branch.name) %>
+			<% end %>
+		    </td>
+		  </tr>
+		</thead>
+	    <%= yield %>
+	  </table>
+	</div>
+	
+</body>
+</html>

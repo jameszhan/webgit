@@ -1,22 +1,35 @@
+
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'webgit/version'
 
-# Describe your gem and declare its dependencies:
-Gem::Specification.new do |s|
-  s.name        = "webgit"
-  s.version     = Webgit::VERSION
-  s.authors     = ["James Zhan"]
-  s.email       = ["zhiqiangzhan@gmail.com"]
-  s.homepage    = "https://github.com/jameszhan"
-  s.summary     = "Git Web Client"
-  s.description = "Git Web Client."
-  s.homepage    = "http://www.github.com/jameszhan/webgit"
-  s.license     = "MIT"
+Gem::Specification.new do |spec|
+  spec.name          = "webgit"
+  spec.version       = Webgit::VERSION
+  spec.authors       = ["James Zhan"]
+  spec.email         = ["zhiqiangzhan@gmail.com"]
+  spec.homepage      = "http://www.github.com/jameszhan/webgit"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  if spec.respond_to?(:metadata)
+    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
+  end
 
-  s.add_dependency 'rugged', '~> 0.21'
-  s.add_dependency 'coderay', '~> 1.1'
+  spec.summary       = "Git Web Client"
+  spec.description   = "Git Web Client."
+  spec.homepage      = "http://www.github.com/jameszhan/webgit"
+  spec.license       = "MIT"
+
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]  
+
+  spec.add_dependency "sinatra",  '~> 1.4'
+  spec.add_dependency 'rugged',   '~> 0.21'
+  spec.add_dependency 'coderay',  '~> 1.1'
+  spec.add_dependency "mime-types", '~> 2.4'
+
+  spec.add_development_dependency "bundler", "~> 1.8"
+  spec.add_development_dependency "rake", "~> 10.0"
 end
