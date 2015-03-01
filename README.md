@@ -21,8 +21,17 @@ Or install it yourself as:
 ## Usage
 
 ```sh
-webgit <GIT_REPO_PATH>
+cd <GIT_REPO_DIR>
+webgit
 ```
+
+`http://localhost:9999/`
+
+```
+webgit <GIT_REPO_DIR> <PORT>
+```
+
+`http://localhost:<PORT>/`
 
 
 ## Development
