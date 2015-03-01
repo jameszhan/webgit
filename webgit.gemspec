@@ -9,11 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["James Zhan"]
   spec.email         = ["zhiqiangzhan@gmail.com"]
   spec.homepage      = "http://www.github.com/jameszhan/webgit"
-
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
-
+  
   spec.summary       = "Git Web Client"
   spec.description   = "Git Web Client."
   spec.homepage      = "http://www.github.com/jameszhan/webgit"
